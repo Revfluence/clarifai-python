@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 import re
-import typing  # noqa
+# import typing  # noqa
 
 import requests  # noqa
 from google.protobuf.descriptor import Descriptor  # noqa

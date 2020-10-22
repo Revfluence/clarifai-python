@@ -1,4 +1,4 @@
-import typing  # noqa
+# import typing  # noqa
 
 from google.protobuf import descriptor
 from google.protobuf.json_format import _IsMapEntry, _Printer

@@ -12,7 +12,7 @@ import os
 import platform
 from urlparse import urlparse
 import time
-import typing  # noqa
+# import typing  # noqa
 import warnings
 from io import BytesIO
 from ConfigParser import ConfigParser
