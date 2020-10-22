@@ -20,7 +20,7 @@ from posixpath import join as urljoin
 from pprint import pformat
 
 import requests
-from google.protobuf.struct_pb2 import Struct
+# from google.protobuf.struct_pb2 import Struct
 
 from clarifai.errors import ApiClientError, ApiError, TokenError, UserError  # noqa
 from clarifai.rest.geo import Geo, GeoBox, GeoLimit, GeoPoint
