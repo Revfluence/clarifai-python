@@ -78,6 +78,7 @@ class ClarifaiApp(object):
         return
 
       tags = res.json()
+      
       tag_latest = tags[-1]
       tag_latest_release = tag_latest['ref'].split('/')[-1]
       if tag_latest_release.startswith('v'):
