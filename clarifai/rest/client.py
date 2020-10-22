@@ -14,7 +14,6 @@ from urlparse import urlparse
 import time
 import typing  # noqa
 import warnings
-from configparser import ConfigParser
 from io import BytesIO
 from ConfigParser import ConfigParser
 from posixpath import join as urljoin
