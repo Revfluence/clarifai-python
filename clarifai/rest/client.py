@@ -3,7 +3,7 @@
 Clarifai API Python Client
 """
 
-from past.builtins import basestring  #TODO: CHECK
+from past.builtins import basestring
 
 import base64 as base64_lib
 import copy
