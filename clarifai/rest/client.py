@@ -19,7 +19,7 @@ from pprint import pformat
 from ConfigParser import ConfigParser
 from posixpath import join as urljoin
 from urlparse import urlparse
-from .geo import GeoPoint, GeoBox, GeoLimit, Geo
+from .geo import GeoPoint, GeoBox, GeoLimit, Geo 
 
 logger = logging.getLogger('clarifai')
 logger.handlers = []
