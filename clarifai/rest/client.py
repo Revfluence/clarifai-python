@@ -21,7 +21,6 @@ from posixpath import join as urljoin
 from past.builtins import basestring
 from jsonschema import validate
 from future.moves.urllib.parse import urlparse
-from distutils.version import StrictVersion
 from .geo import GeoPoint, GeoBox, GeoLimit, Geo
 
 logger = logging.getLogger('clarifai')
