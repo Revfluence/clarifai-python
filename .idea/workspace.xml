@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4d886e3-ef4f-4eeb-b7fd-057b6006960a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clarifai/rest/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/clarifai/rest/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clarifai/rest/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/clarifai/rest/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/basics.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/basics.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +55,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2020" y="100" width="1720" height="880" key="DiffContextDialog" timestamp="1604359619871">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2020" y="100" width="1720" height="880" key="DiffContextDialog/1920.0.1920.1080/0.23.1920.988/3840.23.1680.1027@1920.0.1920.1080" timestamp="1604359619871" />
     <state x="667" y="295" width="586" height="490" key="find.popup" timestamp="1604090177063">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

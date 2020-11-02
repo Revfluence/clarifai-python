@@ -6,7 +6,7 @@ This page lists a few basic concepts used in the Clarifai API.
 
 Image
 ============
-Image is straightforward. It represents a picture in digital format. 
+Image is straightforward. It represents a picture in digital format.
 
 In Clarifai API, an image could be represented by an url, a local filename, an opened io stream, raw bytes of the image, or bytes encoded in base64.
 
@@ -29,7 +29,7 @@ Clarifai Concept has an unique ID, and a name. Sometimes the concept name is als
 
 Model
 ============
-Model is machine learning algorithm that takes input, such as image or video, and output some results for prediction. For custom training, the models trained are all concept models. 
+Model is machine learning algorithm that takes input, such as image or video, and output some results for prediction. For custom training, the models trained are all concept models.
 The output of a concept model is a list of concepts in prediction, associated with probabilities for condidence of the prediction.
 
 Image Crop
