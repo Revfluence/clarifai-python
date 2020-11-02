@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f4d886e3-ef4f-4eeb-b7fd-057b6006960a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/clarifai/rest/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/clarifai/rest/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
