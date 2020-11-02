@@ -93,6 +93,38 @@ class ClarifaiApp(object):
       logger.debug(str(e))
       pass
 
+  def check_upgrade(self):
+    """ Check for a client upgrade.
+        If the client has been installed for more than one week, the check will be
+        triggered.
+        If the newer version is available, a prompt message will pop up as a
+        warning message in STDERR. The API call will not be paused or interrupted.
+    """
+
+    try:
+      # check the latest version
+      res = requests.get(GITHUB_TAG_ENDPOINT)
+
+      # ignore the rare github api outage because this is noncritical check
+      if res.status_code != 200:
+        logger.debug("github.com or network might be down. Please check connectivity.")
+        logger.debug("HTTP %d: %s" % (res.status_code, res.content))
+        return
+
+      tags = res.json()
+      tag_latest = tags[-1]
+      tag_latest_release = tag_latest['ref'].split('/')[-1]
+      if tag_latest_release.startswith('v'):
+        tag_latest_release = tag_latest_release[1:]
+
+      # compare and warn
+      if StrictVersion(CLIENT_VERSION) < StrictVersion(tag_latest_release):
+        print("Hey! Clarifai Python Client v%s upgrade available." % tag_latest_release)
+    except Exception as e:
+      # as this is non critical check, ignore all exceptions that occur
+      logger.debug(str(e))
+      pass
+
   """
   Below are the shortcut functions for a more smooth transition of the v1 users
   Also they are convenient functions for the tag only users so they do not have
