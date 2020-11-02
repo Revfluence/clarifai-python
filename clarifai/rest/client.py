@@ -14,9 +14,11 @@ import requests
 import platform
 from io import BytesIO
 from pprint import pformat
-from ConfigParser import ConfigParser
+from configparser import ConfigParser
 from posixpath import join as urljoin
-from urlparse import urlparse
+from past.builtins import basestring
+from jsonschema import validate
+from future.moves.urllib.parse import urlparse
 from distutils.version import StrictVersion
 from .geo import GeoPoint, GeoBox, GeoLimit, Geo
 
@@ -700,8 +702,7 @@ class Models(object):
 
     # the cache of the model name -> model id mapping
     # to avoid an extra model query on every prediction by model name
-    if not skip_model_cache:
-      self.model_id_cache = self.init_model_cache()
+    self.model_id_cache = self.init_model_cache()
 
   def init_model_cache(self):
     ''' initialize the model cache for the public models
