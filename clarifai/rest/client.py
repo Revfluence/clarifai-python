@@ -2591,8 +2591,8 @@ class Model(object):
 
       if self.output_info.get('output_config'):
         output_config = self.output_info['output_config']
-        self.concepts_mutually_exclusive = output_config['concepts_mutually_exclusive']
-        self.closed_environment = output_config['closed_environment']
+        self.concepts_mutually_exclusive = output_config.get('concepts_mutually_exclusive', False)
+        self.closed_environment = output_config.get('closed_environment', False)
 
         if output_config.get('hyper_parameters'):
           self.hyper_parameters = json.loads(output_config['hyper_parameters'])
