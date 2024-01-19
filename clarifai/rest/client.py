@@ -16,7 +16,7 @@ import platform
 from enum import Enum
 from io import BytesIO
 from pprint import pformat
-from ConfigParser import ConfigParser
+from configparser import ConfigParser
 from posixpath import join as urljoin
 from urlparse import urlparse
 from distutils.version import StrictVersion
