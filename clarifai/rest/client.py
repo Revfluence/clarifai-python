@@ -18,7 +18,10 @@ from io import BytesIO
 from pprint import pformat
 from configparser import ConfigParser
 from posixpath import join as urljoin
-from urlparse import urlparse
+try:
+  from urlparse import urlparse
+except ImportError:
+  from urllib.parse import urlparse
 from distutils.version import StrictVersion
 from .geo import GeoPoint, GeoBox, GeoLimit, Geo
 
