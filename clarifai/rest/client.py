@@ -3581,7 +3581,7 @@ class ApiClient(object):
     """
 
     resource = "users/aspire/apps/7277eb7cb3f54adfa8c923f1765eca4b/inputs/searches/"
-
+    print("query shape %s" % query)
     # Similar image search and predictions
     d = {'pagination': pagination(page, per_page).dict(),
          'query': query
