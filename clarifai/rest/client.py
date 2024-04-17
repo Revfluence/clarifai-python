@@ -3580,7 +3580,7 @@ class ApiClient(object):
       scores
     """
 
-    resource = "inputs/searches/"
+    resource = "users/aspire/apps/7277eb7cb3f54adfa8c923f1765eca4b/inputs/searches/"
 
     # Similar image search and predictions
     d = {'pagination': pagination(page, per_page).dict(),
