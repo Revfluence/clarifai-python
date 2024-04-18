@@ -3581,11 +3581,18 @@ class ApiClient(object):
     """
 
     resource = "users/aspire/apps/%s/inputs/searches/" % CLARIFAI_APP_ID
-    metadata = {}
+    filters = []
     if (len(query['ands']) == 1):
       image = query['ands'][0]['output']['input']['data']['image']
     else:
       metadata = query['ands'][0]['input']['data']['metadata']
+      filters = [{
+        "annotation": {
+          "data": {
+            "metadata": metadata
+          }
+        }
+      }]
       image = query['ands'][1]['output']['input']['data']['image']
 
     searches = [{
@@ -3594,10 +3601,10 @@ class ApiClient(object):
           'annotation': {
             "data": {
               "image": image,
-              "metadata": metadata
             }
           }
-        }]
+        }],
+        "filters": filters
       }
     }]
 
