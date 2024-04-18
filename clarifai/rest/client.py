@@ -3582,7 +3582,14 @@ class ApiClient(object):
 
     resource = "users/aspire/apps/7277eb7cb3f54adfa8c923f1765eca4b/inputs/searches/"
     print("query shape %s" % query['ands'])
-    image_url = query['ands'][1]['output']['input']['data']['image']['url']
+    image_url = None
+    metadata = None
+    if (len(query['ands']) == 1):
+      image_url = query['ands'][0]['output']['input']['data']['image']['url']
+    else:
+      metadata = query['ands'][0]['input']['data']['metadata']
+      image_url = query['ands'][1]['output']['input']['data']['image']['url']
+
     searches = [{
       'query': {
         'ranks': [{
