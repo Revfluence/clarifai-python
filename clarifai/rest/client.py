@@ -3582,9 +3582,22 @@ class ApiClient(object):
 
     resource = "users/aspire/apps/7277eb7cb3f54adfa8c923f1765eca4b/inputs/searches/"
     print("query shape %s" % query)
+    image_url = query['ands'][1]['output']['input']['data']['image']['url']
+    searches = [{
+      'query': {
+        'ranks': [{
+          'annotation': {
+            "data": {
+              "image": image_url
+            }
+          }
+        }]
+      }
+    }]
+
     # Similar image search and predictions
     d = {'pagination': pagination(page, per_page).dict(),
-         'query': query
+         'searches': searches
          }
 
     res = self.post(resource, d)
