@@ -39,7 +39,7 @@ PYTHON_VERSION = '.'.join(map(str, [os.sys.version_info.major, os.sys.version_in
 GITHUB_TAG_ENDPOINT = 'https://api.github.com/repos/clarifai/clarifai-python/git/refs/tags'
 
 DEFAULT_TAG_MODEL = 'general-v1.3'
-
+CLARIFAI_APP_ID = '7277eb7cb3f54adfa8c923f1765eca4b'
 
 class ClarifaiApp(object):
   """ Clarifai Application Object
@@ -3580,10 +3580,8 @@ class ApiClient(object):
       scores
     """
 
-    resource = "users/aspire/apps/7277eb7cb3f54adfa8c923f1765eca4b/inputs/searches/"
-    print("query shape %s" % query['ands'])
-    image_url = None
-    metadata = None
+    resource = "users/aspire/apps/%s/inputs/searches/" % CLARIFAI_APP_ID
+    metadata = {}
     if (len(query['ands']) == 1):
       image = query['ands'][0]['output']['input']['data']['image']
     else:
@@ -3595,7 +3593,8 @@ class ApiClient(object):
         'ranks': [{
           'annotation': {
             "data": {
-              "image": image
+              "image": image,
+              "metadata": metadata
             }
           }
         }]
