@@ -3585,17 +3585,17 @@ class ApiClient(object):
     image_url = None
     metadata = None
     if (len(query['ands']) == 1):
-      image_url = query['ands'][0]['output']['input']['data']['image']['url']
+      image = query['ands'][0]['output']['input']['data']['image']
     else:
       metadata = query['ands'][0]['input']['data']['metadata']
-      image_url = query['ands'][1]['output']['input']['data']['image']['url']
+      image = query['ands'][1]['output']['input']['data']['image']
 
     searches = [{
       'query': {
         'ranks': [{
           'annotation': {
             "data": {
-              "image": image_url
+              "image": image
             }
           }
         }]
