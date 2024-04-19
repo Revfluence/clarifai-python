@@ -3582,9 +3582,7 @@ class ApiClient(object):
 
     resource = "users/aspire/apps/%s/inputs/searches/" % CLARIFAI_APP_ID
     filters = []
-    if (len(query['ands']) == 1):
-      image = query['ands'][0]['output']['input']['data']['image']
-    else:
+    if (len(query['ands']) == 2):
       metadata = query['ands'][0]['input']['data']['metadata']
       filters = [{
         "annotation": {
@@ -3594,6 +3592,8 @@ class ApiClient(object):
         }
       }]
       image = query['ands'][1]['output']['input']['data']['image']
+    else:
+      image = query['ands'][0]['output']['input']['data']['image']
 
     searches = [{
       'query': {
@@ -3607,6 +3607,8 @@ class ApiClient(object):
         "filters": filters
       }
     }]
+
+    print('searches %s' % searches)
 
     # Similar image search and predictions
     d = {'pagination': pagination(page, per_page).dict(),
