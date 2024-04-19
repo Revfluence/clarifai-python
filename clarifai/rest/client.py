@@ -39,7 +39,7 @@ PYTHON_VERSION = '.'.join(map(str, [os.sys.version_info.major, os.sys.version_in
 GITHUB_TAG_ENDPOINT = 'https://api.github.com/repos/clarifai/clarifai-python/git/refs/tags'
 
 DEFAULT_TAG_MODEL = 'general-v1.3'
-
+CLARIFAI_APP_ID = '7277eb7cb3f54adfa8c923f1765eca4b'
 
 class ClarifaiApp(object):
   """ Clarifai Application Object
@@ -3580,11 +3580,45 @@ class ApiClient(object):
       scores
     """
 
-    resource = "searches/"
+    # clarifai new image search endpoint
+    resource = "users/aspire/apps/%s/inputs/searches/" % CLARIFAI_APP_ID
+
+    filters = []
+    image = None
+    try:
+      # extract old query request values
+      if (len(query['ands']) == 2):
+        metadata = query['ands'][0]['input']['data']['metadata']
+        filters = [{
+          "annotation": {
+            "data": {
+              "metadata": metadata
+            }
+          }
+        }]
+        image = query['ands'][1]['output']['input']['data']['image']
+      else:
+        image = query['ands'][0]['output']['input']['data']['image']
+    except Exception as e:
+      raise ValueError('Failed to parse image search query with value {} {}'.format(query, e))
+
+    # the new endpoint expects this shape of the request data object
+    searches = [{
+      'query': {
+        'ranks': [{
+          'annotation': {
+            "data": {
+              "image": image,
+            }
+          }
+        }],
+        "filters": filters
+      }
+    }]
 
     # Similar image search and predictions
     d = {'pagination': pagination(page, per_page).dict(),
-         'query': query
+         'searches': searches
          }
 
     res = self.post(resource, d)
