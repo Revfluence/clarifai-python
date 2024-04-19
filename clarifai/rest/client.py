@@ -3579,7 +3579,7 @@ class ApiClient(object):
       raw JSON response from the API server, with a list of inputs and corresponding ranking
       scores
     """
-    print('raw query %s' % query)
+
     resource = "users/aspire/apps/%s/inputs/searches/" % CLARIFAI_APP_ID
     filters = []
     if (len(query['ands']) == 2):
@@ -3607,8 +3607,6 @@ class ApiClient(object):
         "filters": filters
       }
     }]
-
-    print('searches %s' % searches)
 
     # Similar image search and predictions
     d = {'pagination': pagination(page, per_page).dict(),
