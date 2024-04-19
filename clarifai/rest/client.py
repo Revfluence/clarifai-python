@@ -3585,18 +3585,23 @@ class ApiClient(object):
 
     # extract old query request values
     filters = []
-    if (len(query['ands']) == 2):
-      metadata = query['ands'][0]['input']['data']['metadata']
-      filters = [{
-        "annotation": {
-          "data": {
-            "metadata": metadata
+    image = None
+
+    try:
+      if (len(query['ands']) == 2):
+        metadata = query['ands'][0]['input']['data']['metadata']
+        filters = [{
+          "annotation": {
+            "data": {
+              "metadata": metadata
+            }
           }
-        }
-      }]
-      image = query['ands'][1]['output']['input']['data']['image']
-    else:
-      image = query['ands'][0]['output']['input']['data']['image']
+        }]
+        image = query['ands'][1]['output']['input']['data']['image']
+      else:
+        image = query['ands'][0]['output']['input']['data']['image']
+    except Exception as e:
+      raise ValueError('Failed to parse image search query with value {} {}'.format(query, e))
 
     # the new endpoint expects this shape of the request data object
     searches = [{
