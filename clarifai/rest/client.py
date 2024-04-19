@@ -3580,7 +3580,10 @@ class ApiClient(object):
       scores
     """
 
+    # clarifai new image search endpoint
     resource = "users/aspire/apps/%s/inputs/searches/" % CLARIFAI_APP_ID
+
+    # extract old query request values
     filters = []
     if (len(query['ands']) == 2):
       metadata = query['ands'][0]['input']['data']['metadata']
@@ -3595,6 +3598,7 @@ class ApiClient(object):
     else:
       image = query['ands'][0]['output']['input']['data']['image']
 
+    # the new endpoint expects this shape of the request data object
     searches = [{
       'query': {
         'ranks': [{
