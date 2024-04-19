@@ -3579,7 +3579,7 @@ class ApiClient(object):
       raw JSON response from the API server, with a list of inputs and corresponding ranking
       scores
     """
-
+    print('raw query %s' % query)
     resource = "users/aspire/apps/%s/inputs/searches/" % CLARIFAI_APP_ID
     filters = []
     if (len(query['ands']) == 2):
