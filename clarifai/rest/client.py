@@ -3583,11 +3583,10 @@ class ApiClient(object):
     # clarifai new image search endpoint
     resource = "users/aspire/apps/%s/inputs/searches/" % CLARIFAI_APP_ID
 
-    # extract old query request values
     filters = []
     image = None
-
     try:
+      # extract old query request values
       if (len(query['ands']) == 2):
         metadata = query['ands'][0]['input']['data']['metadata']
         filters = [{
