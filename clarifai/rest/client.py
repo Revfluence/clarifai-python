@@ -3525,7 +3525,8 @@ class ApiClient(object):
 
     print("clarifai response")
     print("--------------------")
-    print(res)
+    print(res.request)
+    print(res.headers)
     return res.json()
 
   def get(self, resource, params=None, version="v2"):
