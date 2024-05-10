@@ -3523,10 +3523,7 @@ class ApiClient(object):
       logger.debug("Failed after %d retrie(s)" % (max_attempts - attempts))
       raise ApiError(resource, params, method, res, self)
 
-    print("clarifai response")
-    print("--------------------")
-    print(res.request)
-    print(res.headers)
+    print("clarifai request id " + res.request['X-Clarifai-Request-Id'])
     return res.json()
 
   def get(self, resource, params=None, version="v2"):
