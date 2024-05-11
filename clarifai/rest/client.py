@@ -10,7 +10,7 @@ import json
 import copy
 import base64 as base64_lib
 import logging
-
+import time
 import requests
 import platform
 from enum import Enum
@@ -3392,6 +3392,7 @@ class ApiClient(object):
       self.get_token()
 
   def _requester(self, resource, params, method, version="v2"):
+    start_time = time.time()
     """ Obtains info and verifies user via Token Decorator
 
     Args:
@@ -3523,7 +3524,8 @@ class ApiClient(object):
       logger.debug("Failed after %d retrie(s)" % (max_attempts - attempts))
       raise ApiError(resource, params, method, res, self)
 
-    print("clarifai req_id " + res.headers['X-Clarifai-Request-Id'])
+    end_time = time.time()
+    logger.info("clarifai latency {} seconds with req_id {}".format(end_time - start_time, res.headers['X-Clarifai-Request-Id']))
     return res.json()
 
   def get(self, resource, params=None, version="v2"):
