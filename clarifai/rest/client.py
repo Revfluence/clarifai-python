@@ -3525,7 +3525,7 @@ class ApiClient(object):
       raise ApiError(resource, params, method, res, self)
 
     end_time = time.time()
-    logger.info("clarifai latency {} seconds with req_id {}".format(end_time - start_time, res.headers['X-Clarifai-Request-Id']))
+    logger.info("clarifai latency is {} seconds for resource {} with req_id {}".format(end_time - start_time, resource, res.headers['X-Clarifai-Request-Id']))
     return res.json()
 
   def get(self, resource, params=None, version="v2"):
