@@ -3479,9 +3479,10 @@ class ApiClient(object):
         res = requests.patch(url, data=json.dumps(params), headers=headers)
       else:
         raise UserError("Unsupported request type: '%s'" % method)
-      print("analyze image res " + str(res))
+
       try:
         js = res.json()
+        print("analyze image res " + json.dumps(js))
       except Exception:
         logger.exception("Could not get valid JSON from server response.")
         logger.debug("\nRESULT:\n%s", pformat(res.content.decode('utf-8')))
