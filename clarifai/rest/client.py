@@ -943,6 +943,7 @@ class WorkflowNode(object):
   """
 
   def __init__(self, wf_node):
+    print("eyas_node_testing " + str(wf_node))
     self.node_id = wf_node['id']
     self.model_id = wf_node['model']['id']
     self.model_version_id = wf_node['model']['model_version']['id']
