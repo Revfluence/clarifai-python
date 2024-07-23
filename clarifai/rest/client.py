@@ -2583,6 +2583,7 @@ class Model(object):
       self.model_id = model_id
       self.model_version = None
     elif item:
+      print("item eyas test " + str(item))
       self.model_id = item['id']
       self.model_name = item['name']
       self.created_at = item['created_at']
