@@ -2589,9 +2589,8 @@ class Model(object):
       self.created_at = item['created_at']
       self.app_id = item['app_id']
       if ('model_version' in item):
-        print("model_version found in item " + str(item))
-      self.model_version = item['model_version']['id']
-      self.model_status_code = item['model_version']['status']['code']
+        self.model_version = item['model_version']['id']
+        self.model_status_code = item['model_version']['status']['code']
 
       self.output_info = item.get('output_info', {})
       self.concepts = []
