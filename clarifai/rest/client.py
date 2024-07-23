@@ -2586,8 +2586,9 @@ class Model(object):
       self.model_name = item['name']
       self.created_at = item['created_at']
       self.app_id = item['app_id']
-      self.model_version = item['model_version']['id']
-      self.model_status_code = item['model_version']['status']['code']
+      if ('model_version' in item):
+        self.model_version = item['model_version']['id']
+        self.model_status_code = item['model_version']['status']['code']
 
       self.output_info = item.get('output_info', {})
       self.concepts = []
@@ -4165,10 +4166,20 @@ class ApiClient(object):
       if not isinstance(obj, (Image, Video)):
         raise UserError("Object at position %d is not a valid type of content to add. Must be Image or Video" % i)
 
-    data = {"inputs": [obj.dict() for obj in objs]}
+    data = {
+      "user_app_id": {
+        "user_id": "aspire",
+        "app_id": CLARIFAI_APP_ID
+      },
+      "model_id": model_id,
+      "inputs": [obj.dict() for obj in objs]
+    }
 
     if model_output_info is not None:
       data.update({'model': model_output_info.dict()})
+
+    if version_id is not None:
+      data.update({ 'version_id': version_id })
 
     res = self.post(resource, data)
     return res
