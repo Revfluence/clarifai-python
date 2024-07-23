@@ -2588,8 +2588,8 @@ class Model(object):
       self.model_name = item['name']
       self.created_at = item['created_at']
       self.app_id = item['app_id']
-      if ('model_version' not in item):
-        print("model_version key not found in " + str(item))
+      if ('model_version' in item):
+        print("model_version found in item " + str(item))
       self.model_version = item['model_version']['id']
       self.model_status_code = item['model_version']['status']['code']
 
