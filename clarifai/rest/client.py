@@ -3407,14 +3407,14 @@ class ApiClient(object):
 
     self._check_token()
     url = urljoin(self.basev2, version, resource)
-
+    print("analyze image url " + url)
     # only retry under when status_code is non-200, under max-tries
     # and under some circumstances
     status_code = 199
     retry = True
     max_attempts = attempts = 3
     headers = {}
-
+    print("analyze image params " + str(params))
     while status_code != 200 and attempts > 0 and retry is True:
 
       logger.debug("=" * 100)
@@ -3479,7 +3479,7 @@ class ApiClient(object):
         res = requests.patch(url, data=json.dumps(params), headers=headers)
       else:
         raise UserError("Unsupported request type: '%s'" % method)
-
+      print("analyze image res " + str(res))
       try:
         js = res.json()
       except Exception:
