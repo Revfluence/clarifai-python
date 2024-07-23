@@ -3485,6 +3485,7 @@ class ApiClient(object):
         js = res.json()
         print("analyze image res " + json.dumps(js))
       except Exception:
+        print("analyze image error ")
         logger.exception("Could not get valid JSON from server response.")
         logger.debug("\nRESULT:\n%s", pformat(res.content.decode('utf-8')))
         return res
