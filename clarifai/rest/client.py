@@ -4175,9 +4175,6 @@ class ApiClient(object):
       "inputs": [obj.dict() for obj in objs]
     }
 
-    if model_output_info is not None:
-      data.update({'model': model_output_info.dict()})
-
     if version_id is not None:
       data.update({ 'version_id': version_id })
 
