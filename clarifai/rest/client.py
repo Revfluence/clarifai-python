@@ -40,6 +40,7 @@ GITHUB_TAG_ENDPOINT = 'https://api.github.com/repos/clarifai/clarifai-python/git
 
 DEFAULT_TAG_MODEL = 'general-v1.3'
 CLARIFAI_APP_ID = '7277eb7cb3f54adfa8c923f1765eca4b'
+CLARIFAI_APP_CONTENT_ID = 'a56129456262440f895395cf8f1b4608'
 
 class ClarifaiApp(object):
   """ Clarifai Application Object
@@ -4169,7 +4170,7 @@ class ApiClient(object):
     data = {
       "user_app_id": {
         "user_id": "aspire",
-        "app_id": CLARIFAI_APP_ID
+        "app_id": CLARIFAI_APP_CONTENT_ID
       },
       "model_id": model_id,
       "inputs": [obj.dict() for obj in objs]
