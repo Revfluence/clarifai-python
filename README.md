@@ -21,7 +21,7 @@ below.
 
 Installation
 ---------------------
-The API client is available on Pip. You can simply install it with a `pip install`
+The API client is available on Pip and requires Python 3.8 or higher. You can simply install it with a `pip install`
 ```
 pip install clarifai --upgrade
 ```

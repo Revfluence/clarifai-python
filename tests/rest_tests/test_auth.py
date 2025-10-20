@@ -3,7 +3,6 @@ import logging
 import unittest
 from clarifai.rest import ClarifaiApp
 from clarifai.rest import ApiError, TokenError
-from past.builtins import basestring
 
 
 class TestAuth(unittest.TestCase):
@@ -18,7 +17,7 @@ class TestAuth(unittest.TestCase):
     token_str = app.auth.get_token()
 
     if token_str is not None:
-      self.assertTrue(isinstance(token_str, basestring))
+      self.assertTrue(isinstance(token_str, str))
       self.assertGreaterEqual(len(token_str), 10)
 
   def test_auth_with_invalid_key(self):

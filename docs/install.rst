@@ -2,7 +2,7 @@
 Installation Guide
 ==================
 
-.. note:: Generally, the python client works with Python 2.x and Python 3.x. But it is only tested against 2.7 and 3.5. Feel free to report BUGs if you encounter on other versions.
+.. note:: The python client requires Python 3.8 or higher. It is tested against Python 3.8, 3.9, 3.10, 3.11, and 3.12.
 
 Install the package
 ===================

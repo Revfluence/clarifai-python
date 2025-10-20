@@ -18,10 +18,7 @@ from io import BytesIO
 from pprint import pformat
 from configparser import ConfigParser
 from posixpath import join as urljoin
-try:
-  from urlparse import urlparse
-except ImportError:
-  from urllib.parse import urlparse
+from urllib.parse import urlparse
 from distutils.version import StrictVersion
 from .geo import GeoPoint, GeoBox, GeoLimit, Geo
 
@@ -97,7 +94,7 @@ class ClarifaiApp(object):
     """
 
     # validate input
-    if not isinstance(urls, list) or (len(urls) > 1 and not isinstance(urls[0], basestring)):
+    if not isinstance(urls, list) or (len(urls) > 1 and not isinstance(urls[0], str)):
       raise UserError('urls must be a list of string urls')
 
     if len(urls) > 128:
@@ -134,7 +131,7 @@ class ClarifaiApp(object):
     """
 
     # validate input
-    if not isinstance(files, list) or (len(files) > 1 and not isinstance(files[0], basestring)):
+    if not isinstance(files, list) or (len(files) > 1 and not isinstance(files[0], str)):
       raise UserError('files must be a list of string file names')
 
     if len(files) > 128:
@@ -1871,11 +1868,11 @@ class Inputs(object):
 
     if concept or concepts:
 
-      if concept and not isinstance(concept, basestring):
+      if concept and not isinstance(concept, str):
         raise UserError('concept should be a string')
       elif concepts and not isinstance(concepts, list):
         raise UserError('concepts must be a list')
-      elif concepts and not all([isinstance(one, basestring) for one in concepts]):
+      elif concepts and not all([isinstance(one, str) for one in concepts]):
         raise UserError('concepts must be a list of all string')
 
       if concept and concepts:
@@ -1895,11 +1892,11 @@ class Inputs(object):
 
     else:
 
-      if concept_id and not isinstance(concept_id, basestring):
+      if concept_id and not isinstance(concept_id, str):
         raise UserError('concept should be a string')
       elif concept_ids and not isinstance(concept_ids, list):
         raise UserError('concepts must be a list')
-      elif concept_ids and not all([isinstance(one, basestring) for one in concept_ids]):
+      elif concept_ids and not all([isinstance(one, str) for one in concept_ids]):
         raise UserError('concepts must be a list of all string')
 
       if concept_id and concept_ids:
@@ -1995,11 +1992,11 @@ class Inputs(object):
     if not concept and not concepts and concept_id and concept_ids:
       raise UserError('concept could not be null.')
 
-    if concept and not isinstance(concept, basestring):
+    if concept and not isinstance(concept, str):
       raise UserError('concept should be a string')
     elif concepts and not isinstance(concepts, list):
       raise UserError('concepts must be a list')
-    elif concepts and not all([isinstance(one, basestring) for one in concepts]):
+    elif concepts and not all([isinstance(one, str) for one in concepts]):
       raise UserError('concepts must be a list of all string')
 
     if concept or concepts:
@@ -3558,7 +3555,7 @@ class ApiClient(object):
     for obj in objs:
       if not isinstance(obj, (Image, Video)):
         raise UserError("Not valid type of content to add. Must be Image or Video")
-      if obj.input_id is not None and not isinstance(obj.input_id, basestring):
+      if obj.input_id is not None and not isinstance(obj.input_id, str):
         raise UserError("Not valid input ID. Must be a string or None")
       if obj.input_id is not None and '/' in obj.input_id:
         raise UserError("Not valid input ID. Cannot contain character: \"/\"")
