@@ -25,6 +25,7 @@ setup(
                       'certifi>=2026.10.18',
                       'idna>=3.15, <4'] +
                      ([] if has_enum else ['enum34>=1.1, <2']),
+    python_requires='>=3.8',
     packages=find_packages(),
     license="Apache 2.0",
     scripts=['scripts/clarifai'],
