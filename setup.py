@@ -21,8 +21,11 @@ setup(
     install_requires=['future>=0.15, <2',
                       'requests>=2.13, <3',
                       'configparser>=3.5, <4',
-                      'jsonschema>=2.5, <3'] +
+                      'jsonschema>=2.5, <3',
+                      'certifi>=2026.10.18',
+                      'idna>=3.15, <4'] +
                      ([] if has_enum else ['enum34>=1.1, <2']),
+    python_requires='>=3.8',
     packages=find_packages(),
     license="Apache 2.0",
     scripts=['scripts/clarifai'],
